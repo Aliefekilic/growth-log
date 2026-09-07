@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: growthlog-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourSecurePassword123!
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql/data
+    networks:
+      - growthlog-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: growthlog-backend
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=GrowthLogDb;User Id=sa;Password=YourSecurePassword123!;TrustServerCertificate=True;
+      - Jwt__Secret=super-secret-jwt-key-minimum-32-characters-long!
+      - Jwt__Issuer=DeveloperGrowthLog
+      - Jwt__Audience=DeveloperGrowthLogUsers
+    ports:
+      - "5000:8080"
+    depends_on:
+      - sqlserver
+    networks:
+      - growthlog-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: growthlog-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    networks:
+      - growthlog-network
+
+networks:
+  growthlog-network:
+    driver: bridge
+
+volumes:
+  mssql_data:
