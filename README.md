@@ -11,11 +11,15 @@
 
 ---
 
-## 🔗 Canlı Demo & Bağlantılar
+## 🔗 Çalıştırma & Geliştirici Bağlantıları
 
-- **Canlı Demo Web Uygulaması**: `http://localhost:5173` *(Local Dev)* / `https://growth-log.example.com` *(Prod Deployment)*
-- **Backend Swagger API Dokümantasyonu**: `http://localhost:5000/swagger`
-- **Örnek Kamusal Portföy**: `http://localhost:5173/p/ali-efe-d2414f`
+Proje kendi bilgisayarınızda çalıştırıldığında aşağıdaki adreslerden erişilebilir:
+
+- **Frontend Web Uygulaması**: `http://localhost:5173` *(Yerel Vite Dev Server)*
+- **Backend Swagger API Dokümantasyonu**: `http://localhost:5000/swagger` *(ASP.NET Core Web API)*
+- **Örnek Kamusal Profil / Portföy**: `http://localhost:5173/p/ali-efe-d2414f` *(Demo verileri yüklendiğinde)*
+
+> 💡 **Canlı Sunucu Yayını (Deployment)**: Proje Docker (`docker-compose up`) ile herhangi bir VPS sunucusunda (Render, Railway, AWS, DigitalOcean vb.) anında canlıya alınabilir.
 
 ---
 
