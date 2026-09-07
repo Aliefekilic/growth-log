@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GrowthLog.Infrastructure.Services;
 
-/// <summary>
-/// GitHub senkronizasyonu OAuth yerine GitHub'ın public REST API'siyle yapılıyor
-/// (GET /users/{username}/repos — kimlik doğrulama gerektirmez, sadece public repoları döner).
-/// Bu, "read-only repo sync" hedefini OAuth app kaydı/secret yönetimi olmadan karşılıyor;
-/// bkz. README "neden bu teknik karar". İleride gerçek OAuth'a geçilirse sadece bu servis
-/// ve ConnectAsync değişir — Controller ve DTO'lar aynı kalır.
-/// </summary>
+
+
+
+
+
+
+
 public class GithubSyncService : IGithubSyncService
 {
     private readonly AppDbContext _db;
@@ -39,7 +39,7 @@ public class GithubSyncService : IGithubSyncService
             .Include(a => a.Repositories)
             .FirstOrDefaultAsync(a => a.DeveloperProfileId == profileId, ct);
 
-        var repos = await FetchPublicReposAsync(username, ct); // önce doğrula: kullanıcı gerçekten var mı ve public repo çekilebiliyor mu
+        var repos = await FetchPublicReposAsync(username, ct); 
 
         if (account is null)
         {
@@ -98,7 +98,7 @@ public class GithubSyncService : IGithubSyncService
         var account = await _db.GithubAccounts.FirstOrDefaultAsync(a => a.DeveloperProfileId == profileId, ct);
         if (account is null) return false;
 
-        _db.GithubAccounts.Remove(account); // Repository satırları cascade ile silinir.
+        _db.GithubAccounts.Remove(account); 
         await _db.SaveChangesAsync(ct);
         return true;
     }
@@ -120,7 +120,7 @@ public class GithubSyncService : IGithubSyncService
             .ToList();
     }
 
-    // --- yardımcılar ---
+    
 
     private async Task<Guid> GetProfileIdAsync(Guid userId, CancellationToken ct)
     {
@@ -183,7 +183,7 @@ public class GithubSyncService : IGithubSyncService
     private static RepositoryDto ToRepoDto(Repository r) => new(
         r.Name, r.PrimaryLanguage, r.StarCount, r.RepoUpdatedAt, r.HtmlUrl);
 
-    // GitHub REST API'nin /users/{username}/repos yanıtından ihtiyacımız olan alt küme.
+    
     private class GithubRepoResponse
     {
         [JsonPropertyName("name")]

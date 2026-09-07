@@ -2,16 +2,16 @@ using GrowthLog.Domain.Common;
 
 namespace GrowthLog.Domain.Entities;
 
-/// <summary>
-/// GitHub OAuth ile bağlanan hesap (read-only sync).
-/// </summary>
+
+
+
 public class GithubAccount : BaseEntity
 {
     public Guid DeveloperProfileId { get; set; }
     public DeveloperProfile DeveloperProfile { get; set; } = null!;
 
     public string GithubUsername { get; set; } = string.Empty;
-    public string AccessTokenEncrypted { get; set; } = string.Empty; // şifrelenmiş saklanır
+    public string AccessTokenEncrypted { get; set; } = string.Empty; 
     public DateTime? LastSyncedAt { get; set; }
 
     public ICollection<Repository> Repositories { get; set; } = new List<Repository>();

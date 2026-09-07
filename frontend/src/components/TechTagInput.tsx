@@ -6,9 +6,9 @@ interface Props {
   onChange: (next: string[]) => void;
 }
 
-// Basit chip/etiket girişi: Enter veya virgül ile ekler, mevcut teknoloji isimlerini önerir.
-// Backend tarafında isim eşleşmesi case-insensitive olduğu için burada tekrar kontrolü
-// aynı mantıkla yapılır (bkz. ProjectService.BuildProjectTechnologiesAsync).
+
+
+
 export function TechTagInput({ value, onChange }: Props) {
   const [input, setInput] = useState('');
   const [known, setKnown] = useState<string[]>([]);

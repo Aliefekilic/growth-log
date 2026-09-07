@@ -5,10 +5,10 @@ using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace GrowthLog.Infrastructure.Services;
 
-/// <summary>
-/// JWT claim'lerinden giriş yapmış kullanıcının kimliğini çözer.
-/// Controller'ların HttpContext'e doğrudan bağımlı olmasını önler.
-/// </summary>
+
+
+
+
 public class CurrentUserService : ICurrentUserService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;

@@ -10,6 +10,6 @@ public class Certificate : BaseEntity
     public string Title { get; set; } = string.Empty;
     public string IssuedBy { get; set; } = string.Empty;
     public DateTime IssuedAt { get; set; }
-    public string? CredentialUrl { get; set; } // public verification linki
+    public string? CredentialUrl { get; set; } 
     public string? CredentialId { get; set; }
 }

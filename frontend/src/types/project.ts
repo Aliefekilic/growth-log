@@ -24,7 +24,7 @@ export interface Project {
   technologies: string[];
 }
 
-// Create ve Update aynı şekli kullanır (form da bunu paylaşıyor).
+
 export type ProjectFormValues = Omit<Project, 'id' | 'technologies'> & {
   technologyNames: string[];
 };

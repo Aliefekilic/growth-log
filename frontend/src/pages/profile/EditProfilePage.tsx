@@ -89,7 +89,7 @@ export default function EditProfilePage() {
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        {/* Header */}
+        
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
           <div>
             <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
@@ -113,7 +113,7 @@ export default function EditProfilePage() {
           )}
         </div>
 
-        {/* Shareable Link Banner for Companies/Employers */}
+        
         {profile && profile.publicSlug && (
           <div className="bg-gradient-to-r from-indigo-950/80 via-slate-900 to-purple-950/60 border border-indigo-500/30 rounded-3xl p-6 shadow-xl space-y-3">
             <div className="flex items-start justify-between gap-4">

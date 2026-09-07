@@ -53,7 +53,7 @@ public class AnalyticsService : IAnalyticsService
             .GroupBy(p => p.Status.ToString())
             .ToDictionary(g => g.Key, g => g.Count());
 
-        // Top Technologies
+        
         var techUsageList = projects
             .SelectMany(p => p.ProjectTechnologies.Select(pt => new { pt.Technology.Name, p.StartedAt }))
             .GroupBy(t => t.Name)
@@ -67,7 +67,7 @@ public class AnalyticsService : IAnalyticsService
             .ThenBy(t => t.FirstUsedAt)
             .ToList();
 
-        // Technology Timeline (First project where each technology was used)
+        
         var timelineMap = new Dictionary<string, TechTimelineItemDto>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var proj in projects)

@@ -9,7 +9,7 @@ public class GithubAccountConfiguration : IEntityTypeConfiguration<GithubAccount
     public void Configure(EntityTypeBuilder<GithubAccount> builder)
     {
         builder.Property(a => a.GithubUsername).HasMaxLength(100).IsRequired();
-        builder.HasIndex(a => a.DeveloperProfileId).IsUnique(); // bir profile en fazla 1 GitHub hesabı
+        builder.HasIndex(a => a.DeveloperProfileId).IsUnique(); 
 
         builder.HasOne(a => a.DeveloperProfile)
             .WithOne(dp => dp.GithubAccount)

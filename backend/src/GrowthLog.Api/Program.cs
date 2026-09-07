@@ -13,15 +13,15 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- Configuration ---
+
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>()!;
 
-// --- Persistence ---
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// --- Identity ---
+
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
     {
@@ -35,7 +35,7 @@ builder.Services
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-// --- JWT Auth ---
+
 builder.Services
     .AddAuthentication(options =>
     {
@@ -58,7 +58,7 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
-// --- App services ---
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<JwtTokenGenerator>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -70,8 +70,8 @@ builder.Services.AddScoped<ICertificateService, CertificateService>();
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 
-// GitHub'ın public REST API'si için named HttpClient — kimlik doğrulama gerekmez,
-// ama User-Agent header zorunlu, aksi halde GitHub 403 döner.
+
+
 builder.Services.AddHttpClient("GitHub", client =>
 {
     client.BaseAddress = new Uri("https://api.github.com/");
@@ -79,7 +79,7 @@ builder.Services.AddHttpClient("GitHub", client =>
     client.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.github+json");
 });
 
-// --- CORS (frontend Vite dev server için) ---
+
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? [];
 builder.Services.AddCors(options =>
 {
@@ -87,7 +87,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 });
 
-// --- Rate Limiting (IP Bazlı Brute-Force Koruması) ---
+
 builder.Services.AddRateLimiter(options =>
 {
     options.AddPolicy("AuthRateLimit", httpContext =>
@@ -110,7 +110,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// --- Seed Data (Demo Kullanıcı & Örnek Veriler) ---
+
 await DbInitializer.SeedAsync(app.Services);
 
 if (app.Environment.IsDevelopment())

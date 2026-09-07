@@ -19,7 +19,7 @@ public static class DbInitializer
 
         try
         {
-            // Auto-migrate if database is relational and pending migrations exist
+            
             if (context.Database.IsSqlServer())
             {
                 await context.Database.MigrateAsync();
@@ -34,13 +34,13 @@ public static class DbInitializer
 
             if (existingUser != null)
             {
-                // Demo user already seeded
+                
                 return;
             }
 
             logger.LogInformation("Seeding demo user and sample data...");
 
-            // 1. Create Demo User
+            
             var demoUser = new ApplicationUser
             {
                 UserName = demoEmail,
@@ -55,7 +55,7 @@ public static class DbInitializer
                 return;
             }
 
-            // 2. Create Developer Profile
+            
             var profile = new DeveloperProfile
             {
                 UserId = demoUser.Id,
@@ -70,9 +70,9 @@ public static class DbInitializer
                 UpdatedAt = DateTime.UtcNow
             };
             context.DeveloperProfiles.Add(profile);
-            await context.SaveChangesAsync(); // Save to generate profile.Id
+            await context.SaveChangesAsync(); 
 
-            // 3. Create Projects with Problem-Solution focus
+            
             var project1 = new Project
             {
                 DeveloperProfileId = profile.Id,
@@ -122,7 +122,7 @@ public static class DbInitializer
 
             context.Projects.AddRange(project1, project2, project3);
 
-            // 4. Create Blog Posts
+            
             var post1 = new BlogPost
             {
                 DeveloperProfileId = profile.Id,
@@ -169,7 +169,7 @@ Vite'in sunduğu instant HMR (Hot Module Replacement) sayesinde kod değişiklik
 
             context.BlogPosts.AddRange(post1, post2);
 
-            // 5. Create Certificates
+            
             var cert1 = new Certificate
             {
                 DeveloperProfileId = profile.Id,

@@ -65,7 +65,7 @@ public class ProjectService : IProjectService
         _db.Projects.Add(project);
         await _db.SaveChangesAsync(ct);
 
-        // Reload with Technology navigation populated for the response DTO.
+        
         await _db.Entry(project).Collection(p => p.ProjectTechnologies).Query()
             .Include(pt => pt.Technology).LoadAsync(ct);
 
@@ -125,7 +125,7 @@ public class ProjectService : IProjectService
 
         if (project is null) return false;
 
-        _db.Projects.Remove(project); // ProjectTechnology satırları cascade ile silinir.
+        _db.Projects.Remove(project); 
         await _db.SaveChangesAsync(ct);
         return true;
     }
@@ -146,7 +146,7 @@ public class ProjectService : IProjectService
         return projects.Select(ToDto).ToList();
     }
 
-    // --- yardımcılar ---
+    
 
     private async Task<Guid> GetProfileIdAsync(Guid userId, CancellationToken ct)
     {
@@ -171,11 +171,11 @@ public class ProjectService : IProjectService
         return profile.Id;
     }
 
-    /// <summary>
-    /// Teknoloji adlarını mevcut Technology kayıtlarıyla eşleştirir (case-insensitive),
-    /// yoksa yeni Technology kaydı oluşturur. "otomatik sayım" burada doğal olarak sağlanır:
-    /// aynı isim her projede aynı Technology satırına bağlanır.
-    /// </summary>
+    
+    
+    
+    
+    
     private async Task<List<ProjectTechnology>> BuildProjectTechnologiesAsync(
         List<string> technologyNames, DateTime usedAt, CancellationToken ct)
     {

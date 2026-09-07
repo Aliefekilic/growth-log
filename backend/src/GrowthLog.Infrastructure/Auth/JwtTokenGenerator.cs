@@ -8,9 +8,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace GrowthLog.Infrastructure.Auth;
 
-/// <summary>
-/// Access token (JWT, kısa ömürlü) ve refresh token (uzun ömürlü, opak string) üretir.
-/// </summary>
+
+
+
 public class JwtTokenGenerator
 {
     private readonly JwtSettings _settings;

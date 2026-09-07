@@ -5,7 +5,7 @@ public record CreateProjectRequest(
     string Summary,
     string? RepoUrl,
     string? LiveUrl,
-    string Status,               // ProjectStatus enum adı: "Planning" | "InProgress" | "Completed" | "OnHold" | "Archived"
+    string Status,               
     string ProblemStatement,
     string? ApproachesTried,
     string FinalSolution,

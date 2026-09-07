@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// Backend adresini .env dosyasından oku (VITE_API_BASE_URL); yoksa local dev HTTP portuna (5000) düş.
+
 const baseURL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:5000/api';
 
 export const apiClient = axios.create({ baseURL });
 
-// Her istekte access token'ı otomatik ekle.
+
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem('accessToken');
   if (token) {
@@ -14,7 +14,7 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
-// 401 alındığında refresh token ile otomatik yenileme
+
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {

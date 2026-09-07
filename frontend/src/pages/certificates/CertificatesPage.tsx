@@ -104,7 +104,7 @@ export default function CertificatesPage() {
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        {/* Header */}
+        
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
           <div>
             <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
@@ -132,7 +132,7 @@ export default function CertificatesPage() {
           </div>
         )}
 
-        {/* Content Grid */}
+        
         {loading ? (
           <div className="py-16 text-center text-slate-500 text-sm animate-pulse">
             Sertifikalar yükleniyor...
@@ -228,7 +228,7 @@ export default function CertificatesPage() {
         )}
       </main>
 
-      {/* Add / Edit Modal Overlay */}
+      
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
           <div className="bg-slate-900 border border-slate-800 w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative animate-in fade-in zoom-in duration-200">

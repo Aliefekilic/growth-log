@@ -50,7 +50,7 @@ public class ProfilesController : ControllerBase
         }
     }
 
-    // Public endpoint — auth gerektirmez, sadece IsPublic=true profiller döner.
+    
     [HttpGet("{slug}")]
     [AllowAnonymous]
     public async Task<ActionResult<ProfileDto>> GetPublicProfile(string slug, CancellationToken ct)

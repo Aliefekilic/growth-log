@@ -54,7 +54,7 @@ export default function PublicDevlogPage() {
         )}
 
         {selectedPost ? (
-          /* Single Article Reader View */
+          
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
             <div>
               <div className="text-xs text-indigo-400 font-medium mb-1">
@@ -74,7 +74,7 @@ export default function PublicDevlogPage() {
             </div>
           </div>
         ) : (
-          /* Article List View */
+          
           <div className="space-y-6">
             <h1 className="text-2xl font-bold text-white flex items-center gap-2">
               <span>✍️</span> Devlog & Teknik Yazılar

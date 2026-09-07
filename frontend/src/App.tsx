@@ -7,7 +7,7 @@ import RegisterPage from './pages/auth/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import EditProfilePage from './pages/profile/EditProfilePage';
 import PublicProfilePage from './pages/profile/PublicProfilePage';
-// import ExploreDevelopersPage from './pages/profile/ExploreDevelopersPage'; // TODO: yeterli kullanıcı sayısına ulaşınca tekrar aktif et
+
 import ProjectsListPage from './pages/projects/ProjectsListPage';
 import ProjectFormPage from './pages/projects/ProjectFormPage';
 import GithubPage from './pages/github/GithubPage';
@@ -22,16 +22,16 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public Visitor Routes */}
+          
           <Route path="/" element={<LandingPage />} />
-          {/* <Route path="/explore" element={<ExploreDevelopersPage />} /> */} {/* TODO: yeterli kullanıcı sayısına ulaşınca tekrar aktif et */}
+           
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/p/:slug" element={<PublicProfilePage />} />
           <Route path="/p/:slug/blog" element={<PublicDevlogPage />} />
           <Route path="/p/:slug/blog/:postSlug" element={<PublicDevlogPage />} />
 
-          {/* Authenticated Protected Routes */}
+          
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/profile" element={<EditProfilePage />} />

@@ -20,7 +20,7 @@ export default function LandingPage() {
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {/* Hero Section */}
+        
         <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-indigo-950/80 via-slate-900 to-purple-950/60 border border-indigo-500/20 p-8 sm:p-14 text-center shadow-2xl space-y-8">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -72,7 +72,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Feature Cards Grid */}
+        
         <section className="space-y-8">
           <div className="text-center space-y-2">
             <h2 className="text-2xl font-bold text-white tracking-tight">Nasıl Çalışır?</h2>
@@ -103,7 +103,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Notice Banner for Unauthenticated Visitors */}
+        
         {!isAuthenticated && (
           <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">

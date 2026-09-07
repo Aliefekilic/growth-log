@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { TechTagInput } from './TechTagInput';
 import { describe, it, expect, vi } from 'vitest';
 
-// technologyApi.getAll() mock — API çağrısı test ortamında hata vermesin
+
 vi.mock('../api/projectApi', () => ({
   technologyApi: {
     getAll: vi.fn().mockResolvedValue([]),

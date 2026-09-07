@@ -2,9 +2,9 @@ using GrowthLog.Domain.Common;
 
 namespace GrowthLog.Domain.Entities;
 
-/// <summary>
-/// GitHub'dan senkronize edilen repo özeti (read-only).
-/// </summary>
+
+
+
 public class Repository : BaseEntity
 {
     public Guid GithubAccountId { get; set; }

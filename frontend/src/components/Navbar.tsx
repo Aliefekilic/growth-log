@@ -14,7 +14,7 @@ import {
   LogIn,
   UserPlus,
   Compass,
-  // Users, // TODO: yeterli kullanıcı sayısına ulaşınca tekrar aktif et
+  
 } from 'lucide-react';
 
 export function Navbar() {
@@ -26,7 +26,7 @@ export function Navbar() {
     { label: 'Ana Panel', path: '/dashboard', icon: LayoutDashboard },
     { label: 'Projeler', path: '/projects', icon: FolderKanban },
     { label: 'Analitik', path: '/analytics', icon: BarChart3 },
-    // { label: 'Geliştiriciler', path: '/explore', icon: Users }, // TODO: yeterli kullanıcı sayısına ulaşınca tekrar aktif et
+    
     { label: 'Sertifikalar', path: '/certificates', icon: Award },
     { label: 'Devlog', path: '/devlog', icon: BookOpen },
     { label: 'GitHub', path: '/github', icon: GitBranch },
@@ -34,14 +34,14 @@ export function Navbar() {
 
   const publicNavItems = [
     { label: 'Ana Sayfa', path: '/', icon: Compass },
-    // { label: 'Geliştiricileri Keşfet', path: '/explore', icon: Users }, // TODO: yeterli kullanıcı sayısına ulaşınca tekrar aktif et
+    
   ];
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Brand Logo */}
+          
           <Link to={isAuthenticated ? '/dashboard' : '/'} className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 p-0.5 shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-200">
               <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
@@ -58,7 +58,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Navigation Links */}
+          
           <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-xl border border-slate-800/60">
             {(isAuthenticated ? authNavItems : publicNavItems).map((item) => {
               const Icon = item.icon;
@@ -82,7 +82,7 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* User & Auth Actions */}
+          
           <div className="flex items-center gap-3">
             {isAuthenticated ? (
               <>
@@ -157,7 +157,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile nav row */}
+      
       <div className="md:hidden flex items-center justify-around py-2 px-2 bg-slate-900/90 border-t border-slate-800/60 overflow-x-auto">
         {(isAuthenticated ? authNavItems : publicNavItems).map((item) => {
           const Icon = item.icon;

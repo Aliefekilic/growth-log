@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GrowthLog.Api.Controllers;
 
-/// <summary>
-/// Proje formundaki teknoloji etiket girişine otomatik tamamlama sağlar.
-/// Asıl Technology kaydı ProjectService içinde proje kaydedilirken otomatik oluşturulur;
-/// bu uç nokta sadece mevcut isimleri önermek için var.
-/// </summary>
+
+
+
+
+
 [ApiController]
 [Route("api/technologies")]
 [Authorize]

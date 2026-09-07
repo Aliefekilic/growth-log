@@ -9,7 +9,7 @@ import {
   Code2, BookOpen, Award, Star, Zap, TrendingUp, Filter, Globe,
 } from "lucide-react";
 
-/* ─── Types ─────────────────────────────────────────────── */
+
 type Category = "Full-Stack" | "Frontend" | "Backend" | "Mobile" | "DevOps";
 
 interface ShowcaseProfile extends Profile {
@@ -24,7 +24,7 @@ interface ShowcaseProfile extends Profile {
   highlightColor?: string;
 }
 
-/* ─── Vitrin Profilleri ──────────────────────────────────── */
+
 const FEATURED_SHOWCASE: ShowcaseProfile[] = [
   {
     id: "showcase-1",
@@ -123,7 +123,7 @@ const FEATURED_SHOWCASE: ShowcaseProfile[] = [
   },
 ];
 
-/* ─── Yardımcı Bileşenler ────────────────────────────────── */
+
 function StatBubble({ icon: Icon, value, label, color }: {
   icon: React.ElementType; value: number; label: string; color: string;
 }) {
@@ -153,13 +153,13 @@ function CategoryBadge({ category }: { category?: Category }) {
   );
 }
 
-/* ─── Vitrin Kartı (büyük, öne çıkan) ─────────────────────── */
+
 function FeaturedCard({ p }: { p: ShowcaseProfile }) {
   return (
     <div className="group relative bg-slate-900/90 border border-slate-800 hover:border-indigo-500/60 rounded-3xl p-6 shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300 flex flex-col gap-5 overflow-hidden">
       <div className={`absolute inset-0 bg-gradient-to-br ${p.highlightColor ?? "from-indigo-500/10"} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl`} />
 
-      {/* Üst: Avatar + Ad + Rozet */}
+      
       <div className="flex items-start gap-4 relative z-10">
         <div className="relative shrink-0">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-500 via-purple-600 to-pink-500 p-0.5 shadow-lg shadow-indigo-500/30 overflow-hidden">
@@ -197,10 +197,10 @@ function FeaturedCard({ p }: { p: ShowcaseProfile }) {
         )}
       </div>
 
-      {/* Bio */}
+      
       {p.bio && <p className="text-xs text-slate-300 leading-relaxed line-clamp-3 relative z-10">{p.bio}</p>}
 
-      {/* Kategorı + Teknoloji */}
+      
       <div className="flex flex-wrap gap-1.5 relative z-10">
         <CategoryBadge category={p.category} />
         {p.tags?.slice(0, 4).map((tag) => (
@@ -208,14 +208,14 @@ function FeaturedCard({ p }: { p: ShowcaseProfile }) {
         ))}
       </div>
 
-      {/* İstatistikler */}
+      
       <div className="flex items-center gap-4 border-t border-slate-800/80 pt-4 relative z-10">
         <StatBubble icon={Code2}    value={p.projectCount ?? 4}  label="Proje"     color="text-indigo-400" />
         <StatBubble icon={BookOpen} value={p.devlogCount  ?? 8}  label="Devlog"    color="text-purple-400" />
         <StatBubble icon={Award}    value={p.certCount    ?? 2}  label="Sertifika" color="text-amber-400"  />
       </div>
 
-      {/* CTA */}
+      
       <Link
         to={`/p/${p.publicSlug}`}
         className="relative z-10 flex items-center justify-between w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-indigo-500/60 group-hover:bg-indigo-950/50 text-xs font-bold text-indigo-300 transition-all duration-300"
@@ -227,7 +227,7 @@ function FeaturedCard({ p }: { p: ShowcaseProfile }) {
   );
 }
 
-/* ─── Topluluk Kartı (kompakt) ─────────────────────────────── */
+
 function CommunityCard({ p }: { p: ShowcaseProfile }) {
   return (
     <div className="group relative bg-slate-900/70 border border-slate-800/80 hover:border-purple-500/50 rounded-2xl p-5 shadow-lg hover:shadow-purple-500/10 transition-all duration-300 flex flex-col gap-4 overflow-hidden">
@@ -273,7 +273,7 @@ function CommunityCard({ p }: { p: ShowcaseProfile }) {
   );
 }
 
-/* ─── Ana Sayfa Bileşeni ────────────────────────────────────── */
+
 export default function ExploreDevelopersPage() {
   const { userProfile } = useAuth();
   const [realProfiles, setRealProfiles] = useState<Profile[]>([]);
@@ -291,12 +291,12 @@ export default function ExploreDevelopersPage() {
 
   const categories = ["Hepsi", "Full-Stack", "Frontend", "Backend", "Mobile", "DevOps"];
 
-  /* Vitrin profilleri — kendi profilini gizle */
+  
   const showcaseFiltered: ShowcaseProfile[] = FEATURED_SHOWCASE.filter(
     (s) => !userProfile || (s.publicSlug !== userProfile.publicSlug && s.id !== userProfile.id)
   );
 
-  /* Gerçek topluluk üyeleri — kendi profilini ve vitrin profilleriyle çakışmayı gizle */
+  
   const communityProfiles: ShowcaseProfile[] = realProfiles
     .filter(
       (p) =>
@@ -329,7 +329,7 @@ export default function ExploreDevelopersPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
 
-        {/* ── Hero Banner ── */}
+        
         <div className="relative overflow-hidden rounded-3xl border border-indigo-500/20 shadow-2xl">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(99,102,241,0.25)_0%,transparent_60%)]" />
@@ -343,7 +343,7 @@ export default function ExploreDevelopersPage() {
 
           <div className="relative z-10 p-7 sm:p-10">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-              {/* Sol: Başlık */}
+              
               <div className="space-y-4 max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-bold">
                   <Star className="w-3.5 h-3.5 text-amber-400" />

@@ -106,13 +106,13 @@ export default function PublicProfilePage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-indigo-500 selection:text-white">
-      {/* Background ambient glow */}
+      
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-indigo-600/10 via-purple-600/5 to-transparent blur-3xl" />
       </div>
 
       <main className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
-        {/* Profile Header Card */}
+        
         <div className="relative overflow-hidden bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-tr from-indigo-500 via-purple-600 to-pink-500 p-0.5 shadow-xl shadow-indigo-500/20 shrink-0 overflow-hidden">
@@ -158,7 +158,7 @@ export default function PublicProfilePage() {
             </div>
           </div>
 
-          {/* Social Pills */}
+          
           <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-slate-800/80 text-xs">
             {profile.location && (
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300">
@@ -195,7 +195,7 @@ export default function PublicProfilePage() {
           </div>
         </div>
 
-        {/* GitHub Repositories Grid */}
+        
         {repositories.length > 0 && (
           <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
             <div className="flex items-center gap-2">
@@ -233,7 +233,7 @@ export default function PublicProfilePage() {
           </div>
         )}
 
-        {/* Certificates Showcase */}
+        
         {certificates.length > 0 && (
           <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
             <div className="flex items-center gap-2">
@@ -275,7 +275,7 @@ export default function PublicProfilePage() {
           </div>
         )}
 
-        {/* Technology Timeline */}
+        
         {timeline.length > 0 && (
           <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
             <div className="flex items-center gap-2">
@@ -307,7 +307,7 @@ export default function PublicProfilePage() {
           </div>
         )}
 
-        {/* Projects Showcase */}
+        
         {projects.length > 0 && (
           <div className="space-y-6">
             <div className="flex items-center gap-2 px-1">
@@ -353,7 +353,7 @@ export default function PublicProfilePage() {
                     </div>
                   )}
 
-                  {/* Problem & Solution Accordion */}
+                  
                   <details className="group border border-slate-800 rounded-2xl bg-slate-950/60 overflow-hidden">
                     <summary className="flex items-center justify-between p-4 text-xs font-semibold text-indigo-400 cursor-pointer hover:bg-slate-900/50 transition">
                       <span className="flex items-center gap-2">
@@ -390,7 +390,7 @@ export default function PublicProfilePage() {
                     </div>
                   </details>
 
-                  {/* Project Links */}
+                  
                   {(p.repoUrl || p.liveUrl) && (
                     <div className="flex items-center gap-4 pt-2 text-xs font-semibold">
                       {p.repoUrl && (
@@ -425,7 +425,7 @@ export default function PublicProfilePage() {
           </div>
         )}
 
-        {/* GitHub Repositories Showcase */}
+        
         {repositories.length > 0 && (
           <div className="space-y-6">
             <div className="flex items-center gap-2 px-1">

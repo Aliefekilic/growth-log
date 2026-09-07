@@ -70,7 +70,7 @@ public class GithubController : ControllerBase
         return disconnected ? NoContent() : NotFound();
     }
 
-    // Herkese açık profil sayfası bunu kullanır — auth gerekmez.
+    
     [HttpGet("/api/profiles/{slug}/repositories")]
     [AllowAnonymous]
     public async Task<ActionResult<List<RepositoryDto>>> GetPublic(string slug, CancellationToken ct)

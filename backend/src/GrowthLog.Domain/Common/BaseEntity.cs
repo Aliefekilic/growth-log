@@ -1,9 +1,9 @@
 namespace GrowthLog.Domain.Common;
 
-/// <summary>
-/// Tüm domain entity'lerinin miras aldığı temel sınıf.
-/// Id, oluşturulma ve güncellenme zaman damgalarını içerir.
-/// </summary>
+
+
+
+
 public abstract class BaseEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();

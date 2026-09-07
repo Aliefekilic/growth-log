@@ -87,7 +87,7 @@ public class ProjectsController : ControllerBase
         return deleted ? NoContent() : NotFound();
     }
 
-    // Herkese açık profil sayfası bunu kullanır — auth gerekmez, sadece IsPublic=true profiller döner.
+    
     [HttpGet("api/profiles/{slug}/projects")]
     [AllowAnonymous]
     public async Task<ActionResult<List<ProjectDto>>> GetPublic(string slug, CancellationToken ct)

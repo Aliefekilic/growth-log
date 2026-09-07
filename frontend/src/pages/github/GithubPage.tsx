@@ -68,7 +68,7 @@ export default function GithubPage() {
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        {/* Header */}
+        
         <div className="pb-6 border-b border-slate-800/80 space-y-1">
           <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
             <GitBranch className="w-6 h-6 text-indigo-400" />
@@ -85,7 +85,7 @@ export default function GithubPage() {
           </div>
         )}
 
-        {/* Not Connected State */}
+        
         {checked && !account && (
           <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
             <div className="space-y-2">
@@ -127,7 +127,7 @@ export default function GithubPage() {
           </div>
         )}
 
-        {/* Connected State */}
+        
         {account && (
           <div className="space-y-6">
             <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -175,7 +175,7 @@ export default function GithubPage() {
               </div>
             )}
 
-            {/* Repositories */}
+            
             <div className="space-y-4">
               <div className="flex items-center justify-between px-1">
                 <h2 className="text-base font-bold text-white flex items-center gap-2">

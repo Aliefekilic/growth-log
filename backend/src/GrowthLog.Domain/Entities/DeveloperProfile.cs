@@ -2,18 +2,18 @@ using GrowthLog.Domain.Common;
 
 namespace GrowthLog.Domain.Entities;
 
-/// <summary>
-/// Kullanıcının herkese açık profil bilgileri.
-/// Kimlik (login/şifre) bilgisi Infrastructure katmanındaki ApplicationUser'da tutulur;
-/// bu entity ona UserId üzerinden 1-1 bağlanır (Domain, Identity'e bağımlı değildir).
-/// </summary>
+
+
+
+
+
 public class DeveloperProfile : BaseEntity
 {
-    public Guid UserId { get; set; } // ApplicationUser.Id (Infrastructure) ile eşleşir
+    public Guid UserId { get; set; } 
 
     public string DisplayName { get; set; } = string.Empty;
-    public string PublicSlug { get; set; } = string.Empty; // /p/{slug} public url
-    public string? Title { get; set; }        // "Full-Stack Developer" gibi
+    public string PublicSlug { get; set; } = string.Empty; 
+    public string? Title { get; set; }        
     public string? Bio { get; set; }
     public string? AvatarUrl { get; set; }
     public string? Location { get; set; }
